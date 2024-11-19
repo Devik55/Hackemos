@@ -4,17 +4,17 @@ const UI = document.createElement("div");
 UI.innerHTML = `
     <div id="menu" class="menu" style="outline: gray solid 2px; min-height: 250px; transform: translateX(0px) translateY(-32px); opacity: 0.85; font-family: sans-serif; width: 175px; height: 250px; background: black; position: absolute; border-radius: 5px; display: grid; place-items: center; color: white; font-size: larger; top: 151px; left: 21px; z-index: 99999; padding-bottom: 20px;">
         <center><h1 class="bottomTitle"></h1></center>
-        <div id="icon" class="icon center"></div>
+        <div id="pic" class="pic center"></div>
         <h1 class="title"><center>Hackemos</center></h1>
         <style id="thing">
-            .icon {
+            .pic {
                 height: 50px;
                 width: 50px;
                 position: relative;
             }
 
-            .icon::before,
-            .icon::after {
+            .pic::before,
+            .pic::after {
                 content: '';
                 position: absolute;
                 top: 0;
@@ -27,21 +27,21 @@ UI.innerHTML = `
                 transition: opacity 0.5s ease-in-out;
             }
 
-            .icon::before {
+            .pic::before {
                 background-image: url("https://github.com/Devik55/Hackemos/blob/b6de711725a0695330ccffc79307ca4da8e751af/assets/logo%20outline.png?raw=true");
                 opacity: 1;
             }
 
-            .icon::after {
+            .pic::after {
                 background-image: url("https://github.com/Devik55/Hackemos/blob/main/assets/logo%20filled%20.png?raw=true");
                 opacity: 0;
             }
 
-            .icon:hover::before {
+            .pic:hover::before {
                 opacity: 0;
             }
 
-            .icon:hover::after {
+            .pic:hover::after {
                 opacity: 1;
             }
 
