@@ -13,6 +13,9 @@ UI.innerHTML = `
                 position: relative;
             }
 
+            /* hey, if it works it works */
+            /* ik i could have used an svg but idk */
+
             .pic::before,
             .pic::after {
                 content: '';
