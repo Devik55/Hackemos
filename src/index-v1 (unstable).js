@@ -1,4 +1,3 @@
-if (window.location.href.startsWith("https://conjuguemos.com/assignment/")) {
 window.dragElement = e => {;let t=0,n=0,o=0,l=0;function u(e){(e=e||window.event).preventDefault(),o=e.clientX,l=e.clientY,document.onmouseup=s,document.onmousemove=i}function i(u){(u=u||window.event).preventDefault(),t=o-u.clientX,n=l-u.clientY,o=u.clientX,l=u.clientY,e.style.top=e.offsetTop-n+"px",e.style.left=e.offsetLeft-t+"px"}function s(){document.onmouseup=null,document.onmousemove=null}if(document.getElementById(e.id+"header")){document.getElementById(e.id+"header").onmousedown=u}else{e.onmousedown=u}};
 
 const UI = document.createElement("div");
@@ -101,7 +100,7 @@ UI.innerHTML = `
                 margin-right: auto;
             }
         </style>
-        <button id="skip" class="button">Skip Lesson</button>
+        <button id="skip" class="button">Complete Lesson</button>
         <button id="showAnswers" class="button">Show Answer</button>
         <button id="skipQ" class="button">Skip Question</button>
         <button id="chngData" class="button">Change Data</button>
@@ -113,25 +112,28 @@ document.body.appendChild(UI);
 
 window.dragElement(UI.firstElementChild);
 
-disclaimer = true
+let disclaimer = true;
 
 document.getElementById('skip').addEventListener('click', () => {
-    let confirmation = parseInt(prompt("CAUTION: VERY IMPORTANT: I'm not done with the skipper yet. Right now, the time is bugged. It will say the lesson lasted between 1970-now. This will probabally lead to you getting caught. Respond with 'yes' to proceed, or 'no' to cancel"))
-    if (confirmation.toUpperCase() = "YES") {
-        skipLesson()
+    let confirmation = prompt(
+        "CAUTION: VERY IMPORTANT: I'm not done with the skipper yet. Right now, the time is bugged. It will say the lesson lasted between 1970-now. This will probably lead to you getting caught. Respond with 'yes' to proceed, or 'no' to cancel"
+    );
+    if (confirmation && confirmation.toUpperCase() === "YES") {
+        skipLesson();
     } else {
-        alert("Skip canceled.")
+        alert("Skip canceled.");
     }
 });
 
 document.getElementById('showAnswers').addEventListener('click', () => {
-    if (disclamer = false) {
-        settings.see_correct = 1
+    if (!disclaimer) {
+        settings.see_correct = 1;
     } else {
-        alert("This only gives you the answer when you get it incorrect. I'm working on another method soon.")
-        disclaimer = false
+        alert("This only gives you the answer when you get it incorrect. I'm working on another method soon.");
+        disclaimer = false;
     }
 });
+
 
 document.getElementById('chngData').addEventListener('click', () => {
     alert("coming soon")
@@ -205,6 +207,4 @@ document.addEventListener('keydown', (event) => {
         toggle = !toggle;
         UI.style.display = toggle ? 'block' : 'none';
     }
-})} else {
-  alert("You must be on an assignment!")
-}
+});
