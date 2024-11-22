@@ -1,4 +1,4 @@
-# ![Hackemos Logo](https://github.com/Devik55/Hackemos/blob/main/assets/logo%20outline.png?raw=true)  
+# <img src="https://github.com/Devik55/Hackemos/blob/main/assets/logo%20outline.png?raw=true" alt="Hackemos Logo" width="150">  
 
 # Hackemos  
 
