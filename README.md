@@ -1,3 +1,5 @@
+# ![Hackemos Logo](https://github.com/Devik55/Hackemos/blob/main/assets/logo%20outline.png?raw=true)  
+
 # Hackemos  
 
 Hackemos is the best Conjuguemos hack in 2024. It has 5+ features:  
@@ -34,4 +36,4 @@ Alternatively, you can go to the `src` folder and paste the newest version into 
 ---
 
 ### Final Notes  
- I only worked on this project about an hour on and off for 2 days, and this is the first exploit I’ve made. It just goes to show how bad the security on this site is!  
+I only worked on this project about an hour on and off for 2 days, and this is the first exploit I’ve made. It just goes to show how bad the security on this site is!  
