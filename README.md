@@ -5,7 +5,7 @@
 Hackemos is the best Conjuguemos hack in 2024. It has 5+ features:  
 
 ### Features  
-1. Complete lessons and set your grade  
+1. Complete lessons and spoof lesson data 
 2. Set questions without fully submitting the lesson  
 3. Set the timer without fully submitting the lesson  
 4. Show answers to incorrect questions  
