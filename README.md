@@ -13,7 +13,7 @@ Hackemos is the best Conjuguemos hack in 2024. It has 5+ features:
 6. Easy-to-use menu  
 + Open Sourced  
 
-You can do all of these with ease on all lessons as well.  
+You can do all of these with ease on all lessons (including custom activities) as well.  
 
 ---
 
