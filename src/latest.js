@@ -125,6 +125,7 @@ if (window.location.href.startsWith("https://conjuguemos.com/")) {
         } else {
             alert("This only gives you the answer when you get it incorrect. I'm working on another method soon.");
             disclaimer = false;
+            settings.see_correct = 1;
         }
     });
     
