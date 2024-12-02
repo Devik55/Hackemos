@@ -203,7 +203,8 @@ if (window.location.href.startsWith("https://conjuguemos.com/")) {
     document.getElementById('versionText').addEventListener('click', () => {
         window.open('https://github.com/Devik55/Hackemos', '_blank'); 
     });
-    
+
+    // when submitted the start end in the request is sent as x amount of time in the past, so be careful if you do multiple lessons in a sohrt period because it will show end dates close in time even if the difference is impossible
     skipLesson = function () {
         // its kinda funny this is a straight copy of the change data method
         let question = prompt("How many questions do you want, and how many did you get correct? Write it as a fraction.", "Ex: 44/45");
