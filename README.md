@@ -20,6 +20,8 @@ You can do all of these with ease on all lessons (including custom activities) a
 ### READ BEFORE USING
 I am not responsible for any damages caused by using this script, as it serves as a proof of concept of the insecurities of the site and how they can be exploited. This is not intended for acedemic dishonesty. The menu is open sourced and is avaliable in the src folder for easy patching. (i also made this so i can have an excuse to practice making uis)
 
+---
+
 ### How to Get Started  
 1. Copy the code in `bookmarklet.js`.  
 2. Open the bookmarks bar (press `Ctrl+Shift+B`).  
