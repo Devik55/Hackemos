@@ -1,4 +1,5 @@
 
+
 let mode;
 
 if (window.location.href.startsWith("https://conjuguemos.com/vocabulary/")) {
@@ -49,26 +50,40 @@ if (mode) {
         let o = document.createElement("div"),
             d = document.createElement("div"),
             bar = document.createElement("div");
+    
+        const duration = Math.max(3000, 50 * t.length);
+    
         o.style.cssText = `position: fixed; top: 20px; left: 0; background: linear-gradient(to right, ${themes[themeKeys[current]].primary || "grey"} 5px, rgba(20, 20, 20, 0.8) 5px); color: white; z-index: 9999; opacity: 0; transition: left 0.5s ease-in-out, opacity 0.5s ease-in-out; max-width: 300px; padding: 10px;`;
         d.style.cssText = "font-size: 18px; word-wrap: break-word;";
         d.textContent = t;
-        bar.style.cssText = `position: absolute; left: 0; bottom: 0; height: 5px; width: 100%; background: ${themes[themeKeys[current]].primary || "grey"}; transition: width 5s linear;`;
+        bar.style.cssText = `position: absolute; left: 0; bottom: 0; height: 5px; width: 100%; background: ${themes[themeKeys[current]].primary || "grey"}; transition: width ${duration}ms linear;`;
+    
         o.appendChild(d);
         o.appendChild(bar);
         document.body.appendChild(o);
+    
+        o.onclick = () => {
+            o.style.opacity = "0";
+            o.style.left = "-100%";
+            setTimeout(() => {
+                document.body.removeChild(o);
+            }, 500);
+        };
+    
         setTimeout(() => {
             o.style.opacity = "1";
-            bar.style.transition = "width 5s linear";
             bar.style.width = "0%";
         }, 100);
+    
         setTimeout(() => {
             o.style.opacity = "0";
             o.style.left = "-100%";
             setTimeout(() => {
                 document.body.removeChild(o);
             }, 500);
-        }, Math.max(5000, 50 * t.length));
+        }, duration);
     };
+    
     
     const UI = document.createElement("div");
     UI.innerHTML = `
@@ -195,7 +210,9 @@ if (mode) {
     
     document.body.appendChild(UI);
     window.dragElement(UI.firstElementChild);
-
+    if (localStorage.length < 1) {
+showNoti("Welcome to the Conjugemos hack. We are not responsible for any damages caused by using this script, as it serves as a proof of concept of the insecurities of the site and how they can be exploited. The menu is open sourced and is avaliable on GitHub via clicking on the version text at the bottom.")
+    }
     if (localStorage.getItem("disclaimer") === null) {
         localStorage.setItem("disclaimer","true")
     }
@@ -281,6 +298,7 @@ if (mode) {
     
     document.getElementById('skipQ').addEventListener('click', () => {
             settings.skip = 1;
+            showNoti("Question Skipped!")
             activity.skip()
     });
     
