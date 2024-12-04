@@ -210,8 +210,8 @@ if (mode) {
     
     document.body.appendChild(UI);
     window.dragElement(UI.firstElementChild);
-    if (localStorage.length < 1) {
-showNoti("Welcome to the Conjugemos hack. We are not responsible for any damages caused by using this script, as it serves as a proof of concept of the insecurities of the site and how they can be exploited. The menu is open sourced and is avaliable on GitHub via clicking on the version text at the bottom.")
+    if (localStorage.getItem("disclaimer") === null) {
+showNoti("Welcome to the Conjugemos hack. We are not responsible for any damages caused by using this script, as it serves as a proof of concept of the insecurities of the site and how they can be exploited. The menu is open sourced and is avaliable on GitHub via clicking on the version text at the bottom. Also here are some hidden features if you are still reading. 'f' to toggle to menu, and click the menu icon to change themes.")
     }
     if (localStorage.getItem("disclaimer") === null) {
         localStorage.setItem("disclaimer","true")
