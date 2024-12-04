@@ -10,12 +10,15 @@ Hackemos is the best Conjuguemos hack in 2024. It has 5+ features:
 3. Set the timer without fully submitting the lesson  
 4. Show answers to incorrect questions  
 5. Skip to the next question  
-6. Easy-to-use menu  
+6. Customizable and easy to use UI 
 + Open Sourced  
 
 You can do all of these with ease on all lessons (including custom activities) as well.  
 
 ---
+
+### READ BEFORE USING
+I am not responsible for any damages caused by using this script, as it serves as a proof of concept of the insecurities of the site and how they can be exploited. This is not intended for acedemic dishonesty. The menu is open sourced and is avaliable in the src folder for easy patching. (i also made this so i can have an excuse to practice making uis)
 
 ### How to Get Started  
 1. Copy the code in `bookmarklet.js`.  
@@ -30,8 +33,10 @@ Alternatively, you can go to the `src` folder and paste the newest version into 
 
 ---
 
-### Screenshot  
-![What the menu looks like](https://github.com/user-attachments/assets/3d6b90ae-d635-4acc-9bf7-7f0697ccf552)  
+### UI (Berry Theme)
+![What the menu looks like](![image](https://github.com/user-attachments/assets/2156aaa9-5d9b-4123-b703-28e74902057a)
+) 
+
 
 ---
 
