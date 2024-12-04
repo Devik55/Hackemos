@@ -1,5 +1,4 @@
 
-
 let mode;
 
 if (window.location.href.startsWith("https://conjuguemos.com/vocabulary/")) {
