@@ -12,31 +12,80 @@ if (window.location.href.startsWith("https://conjuguemos.com/assignment/")) {
 
 if (mode) {
     window.dragElement = e => {;let t=0,n=0,o=0,l=0;function u(e){(e=e||window.event).preventDefault(),o=e.clientX,l=e.clientY,document.onmouseup=s,document.onmousemove=i}function i(u){(u=u||window.event).preventDefault(),t=o-u.clientX,n=l-u.clientY,o=u.clientX,l=u.clientY,e.style.top=e.offsetTop-n+"px",e.style.left=e.offsetLeft-t+"px"}function s(){document.onmouseup=null,document.onmousemove=null}if(document.getElementById(e.id+"header")){document.getElementById(e.id+"header").onmousedown=u}else{e.onmousedown=u}};
-    const themes = {
-        Berry: {
-            primary: '#8e24aa',
-            secondary: '#6a1b9a',
-            tertiary: '#7c20a2',
-            boxShadow: ['rgba(0, 0, 0, 0.4)', 'rgba(142, 36, 170, 0.5)', 'rgba(255, 0, 255, 0.3)'],
-            gradient: '45deg, #6a1b9a, #8e24aa',
-            hoverBg: '#7c20a2',
-            activeBg: '#333',
-            textPrimary: '#ffffff',
-            textSecondary: '#ffffff',
-            background: 'black',
-        },
-        Dark: {
-            primary: 'gray',
-            secondary: '#3700b3',
-            tertiary: '#03dac6',
-            boxShadow: ['rgba(0, 0, 0, 0.4)', 'rgba(255, 255, 255, 0.2)', 'rgba(0, 0, 0, 0.3)'],
-            gradient: '90deg, #ffff, #D1D9E0',
-            hoverBg: '#ffff',
-            activeBg: '#333',
-            textPrimary: '#ffffff',
-            textSecondary: 'black',
-            background: '#121212',
-        },
+        const themes = { 
+            Berry: {
+                primary: '#7b1fa2', 
+                secondary: '#4a0072', 
+                tertiary: '#9c27b0',
+                boxShadow: ['rgba(123, 31, 162, 0.5)', 'rgba(74, 0, 114, 0.4)', 'rgba(156, 39, 176, 0.3)'],
+                gradient: '135deg, #4a0072, #7b1fa2, #e040fb',
+                hoverBg: '#4a0072',
+                activeBg: '#2e003e', 
+                textPrimary: '#ffffff',
+                textSecondary: '#f3e5f5', 
+                background: '#1c0030', 
+            },
+            Dark: {
+                primary: 'gray',
+                secondary: '#3700b3',
+                tertiary: '#03dac6',
+                boxShadow: ['rgba(0, 0, 0, 0.4)', 'rgba(255, 255, 255, 0.2)', 'rgba(0, 0, 0, 0.3)'],
+                gradient: '90deg, #ffff, #D1D9E0',
+                hoverBg: '#ffffff',
+                activeBg: '#333',
+                textPrimary: '#ffffff',
+                textSecondary: 'black',
+                background: '#121212',
+            },
+            Cherry: {
+                primary: '#d32f2f', 
+                secondary: '#b71c1c',
+                tertiary: '#f44336', 
+                boxShadow: ['rgba(211, 47, 47, 0.5)', 'rgba(183, 28, 28, 0.4)', 'rgba(255, 69, 69, 0.3)'],
+                gradient: '135deg, #b71c1c, #f44336, #ff5252',
+                hoverBg: '#b71c1c',
+                activeBg: '#8e0000', 
+                textPrimary: '#ffffff',
+                textSecondary: '#ffe6e6',
+                background: '#330000', 
+            },
+            Ocean: {
+                primary: '#0288d1', 
+                secondary: '#01579b', 
+                tertiary: '#03a9f4',
+                boxShadow: ['rgba(2, 136, 209, 0.5)', 'rgba(1, 87, 155, 0.4)', 'rgba(3, 169, 244, 0.3)'],
+                gradient: '135deg, #01579b, #0288d1, #40c4ff',
+                hoverBg: '#01579b',
+                activeBg: '#002f6c',
+                textPrimary: '#ffffff',
+                textSecondary: '#e0f7fa', 
+                background: '#001f3f',
+            },
+            Sunset: {
+                primary: '#ff6f00', 
+                secondary: '#f4511e', 
+                tertiary: '#ff9100', 
+                boxShadow: ['rgba(255, 111, 0, 0.5 )', 'rgba(244, 81, 30, 0.4)', 'rgba(255, 145, 0, 0.3)'],
+                gradient: '135deg, #f4511e, #ff6f00, #ffd740',
+                hoverBg: '#f4511e',
+                activeBg: '#bf360c', 
+                textPrimary: '#ffffff',
+                textSecondary: '#ffe0b2', 
+                background: '#3e2723',
+            },
+            Forest: {
+                primary: '#2e7d32', 
+                secondary: '#1b5e20',
+                tertiary: '#4caf50', 
+                boxShadow: ['rgba(46, 125, 50, 0.5)', 'rgba(27, 94, 32, 0.4)', 'rgba(76, 175, 80, 0.3)'],
+                gradient: '135deg, #1b5e20, #2e7d32, #76ff03',
+                hoverBg: '#1b5e20',
+                activeBg: '#0d3b09', 
+                textPrimary: '#ffffff',
+                textSecondary: '#c8e6c9', 
+                background: '#0d2b0d', 
+            },
+        
     };
     
     let currentTheme = localStorage.getItem('currentTheme') || 'Dark';
@@ -46,42 +95,39 @@ if (mode) {
     const themeKeys = Object.keys(themes);
     let current = themeKeys.indexOf(currentTheme);
     
-    const showNoti = (t, e) => {
-        let o = document.createElement("div"),
-            d = document.createElement("div"),
-            bar = document.createElement("div");
-    
-        const duration = Math.max(3000, 50 * t.length);
-    
-        o.style.cssText = `position: fixed; top: 20px; left: 0; background: linear-gradient(to right, ${themes[themeKeys[current]].primary || "grey"} 5px, rgba(20, 20, 20, 0.8) 5px); color: white; z-index: 9999; opacity: 0; transition: left 0.5s ease-in-out, opacity 0.5s ease-in-out; max-width: 300px; padding: 10px;`;
-        d.style.cssText = "font-size: 18px; word-wrap: break-word;";
-        d.textContent = t;
-        bar.style.cssText = `position: absolute; left: 0; bottom: 0; height: 5px; width: 100%; background: ${themes[themeKeys[current]].primary || "grey"}; transition: width ${duration}ms linear;`;
-    
-        o.appendChild(d);
-        o.appendChild(bar);
-        document.body.appendChild(o);
-    
-        o.onclick = () => {
-            o.style.opacity = "0";
-            o.style.left = "-100%";
-            setTimeout(() => {
-                document.body.removeChild(o);
-            }, 500);
-        };
-    
-        setTimeout(() => {
-            o.style.opacity = "1";
-            bar.style.width = "0%";
-        }, 100);
-    
-        setTimeout(() => {
-            o.style.opacity = "0";
-            o.style.left = "-100%";
-            setTimeout(() => {
-                document.body.removeChild(o);
-            }, 500);
-        }, duration);
+    let n = null; 
+    const showNoti = (t, e) => { 
+        n && (document.body.removeChild(n), clearTimeout(n.timeout)); 
+        let o = document.createElement("div"), d = document.createElement("div"), b = document.createElement("div"); 
+        const dur = Math.max(3000, 50 * t.length); 
+        o.style.cssText = `position:fixed;top:20px;left:0;background:linear-gradient(to right,${themes[themeKeys[current]].primary || "grey"} 5px,rgba(20,20,20,0.8) 5px);color:white;z-index:9999;opacity:0;transition:left 0.5s ease-in-out,opacity 0.5s ease-in-out;max-width:300px;padding:10px;;` 
+        d.style.cssText = "font-size:18px;word-wrap:break-word;"; 
+        d.textContent = t; 
+        b.style.cssText = `position:absolute;left:0;bottom:0;height:5px;width:100%;background:${themes[themeKeys[current]].primary || "grey"};transition:width ${dur}ms linear;;` 
+        o.appendChild(d); 
+        o.appendChild(b); 
+        document.body.appendChild(o); 
+        n = o; 
+        n.timeout = setTimeout(() => { 
+            o.style.opacity = "1"; 
+            b.style.width = "0%"; 
+        }, 100); 
+        o.onclick = () => { 
+            o.style.opacity = "0"; 
+            o.style.left = "-100%"; 
+            setTimeout(() => { 
+                document.body.removeChild(o); 
+                n = null; 
+            }, 500); 
+        }; 
+        setTimeout(() => { 
+            o.style.opacity = "0"; 
+            o.style.left = "-100%"; 
+            setTimeout(() => { 
+                document.body.removeChild(o); 
+                n = null; 
+            }, 500); 
+        }, dur); 
     };
     
     
@@ -207,16 +253,12 @@ if (mode) {
 
         </div>
     `;
-    
+
     document.body.appendChild(UI);
     window.dragElement(UI.firstElementChild);
-    if (localStorage.getItem("disclaimer") === null) {
+    if (localStorage.getItem("disclaimer2") === null) {
 showNoti("Welcome to the Conjugemos hack. We are not responsible for any damages caused by using this script, as it serves as a proof of concept of the insecurities of the site and how they can be exploited. The menu is open sourced and is avaliable on GitHub via clicking on the version text at the bottom. Also here are some hidden features if you are still reading. 'f' to toggle to menu, and click the menu icon to change themes.")
     }
-    if (localStorage.getItem("disclaimer") === null) {
-        localStorage.setItem("disclaimer","true")
-    }
-
     if (localStorage.getItem("disclaimer2") === null) {
         localStorage.setItem("disclaimer2","true")
     }
@@ -301,15 +343,18 @@ showNoti("Welcome to the Conjugemos hack. We are not responsible for any damages
             showNoti("Question Skipped!")
             activity.skip()
     });
-    
+
+    let aToggle = true;
     document.getElementById('showAnswers').addEventListener('click', () => {
-        if (localStorage.getItem("disclaimer") === 'false') {
+        if (aToggle === true) {
+            showNoti("Show answer on incorrect enabled.");
             settings.see_correct = 1;
-        } else {
-            showNoti("This only gives you the answer when you get it incorrect. I'm working on another method soon.");
-            localStorage.setItem("disclaimer","false");
-            settings.see_correct = 1;
-        }
+            aToggle = false
+    } else {
+        showNoti("Show answer on incorrect disabled.");
+        settings.see_correct = 0;
+        aToggle = true
+    }
     });
     
     document.getElementById('chngData').addEventListener('click', () => {
