@@ -17,6 +17,13 @@ You can do all of these with ease on all lessons (including custom activities) a
 
 ---
 
+### Offical Youtube Showcase 
+<a href="https://www.youtube.com/watch?v=oy_oboVMOtQ">
+  <img src="https://github.com/user-attachments/assets/9a59a848-5e6a-4f7c-af8d-9e9b392e2742" alt="What the menu looks like" />
+</a>
+
+---
+
 ### READ BEFORE USING
 I am not responsible for any damages caused by using this script, as it serves as a proof of concept of the insecurities of the site and how they can be exploited. This is not intended for acedemic dishonesty. The menu is open sourced and is avaliable in the src folder for easy patching. (i also made this so i can have an excuse to practice making uis)
 
@@ -34,15 +41,6 @@ I am not responsible for any damages caused by using this script, as it serves a
 Alternatively, you can go to the `src` folder and paste the newest version into the dev console, but note that this method doesn’t auto-update.  
 
 ---
-
-### Offical Youtube Showcase 
-<a href="https://www.youtube.com/watch?v=oy_oboVMOtQ">
-  <img src="https://github.com/user-attachments/assets/33c26dd5-965a-4357-b528-eea68948d222" alt="What the menu looks like" />
-</a>
-
-
  
 
-
----
 
