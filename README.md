@@ -36,7 +36,10 @@ Alternatively, you can go to the `src` folder and paste the newest version into 
 ---
 
 ### Offical Youtube Showcase 
-![What the menu looks like](https://www.youtube.com/watch?v=oy_oboVMOtQ)
+<a href="https://www.youtube.com/watch?v=oy_oboVMOtQ">
+  <img src="https://github.com/user-attachments/assets/33c26dd5-965a-4357-b528-eea68948d222" alt="What the menu looks like" />
+</a>
+
 
  
 
