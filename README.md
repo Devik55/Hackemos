@@ -19,7 +19,7 @@ You can do all of these with ease on all lessons (including custom activities) a
 
 ### Offical Youtube Showcase 
 <a href="https://www.youtube.com/watch?v=oy_oboVMOtQ">
-  <img src="https://github.com/user-attachments/assets/9a59a848-5e6a-4f7c-af8d-9e9b392e2742" alt="What the menu looks like" />
+  <img src="https://github.com/user-attachments/assets/41114b9e-7de5-424f-9757-903ce3a87b2c" alt="What the menu looks like" />
 </a>
 
 ---
