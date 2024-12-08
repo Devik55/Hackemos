@@ -268,8 +268,8 @@ if (window.location.href.startsWith("https://conjuguemos.com/") && window.is_ass
                 </p>
                 <h4 style="margin-bottom: 10px;">Supported Lesson Types:</h4>
                 <ul style="margin-bottom: 20px;">
-                    <li>Custom Activity</li>
-                    <li>Guided Practice</li>
+                    <li>Custom Assignments</li>
+                    <li>Guided Practices</li>
                 </ul>
                 <h4 style="margin-bottom: 10px;">Menu Features:</h4>
                 <ul>
