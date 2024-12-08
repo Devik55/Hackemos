@@ -248,7 +248,7 @@ if (window.location.href.startsWith("https://conjuguemos.com/") && window.is_ass
             <button id="chngData" class="button">Change Data</button>
             <button id="showAnswers" class="button">Show Answer</button>
             <button id="skipQ" class="button">Skip Question</button>
-                <div class="bottomTitle" id="versionTxt">v2.2</div>
+                <div class="bottomTitle" id="versionTxt">v2.2.1</div>
 </div>
 
         </div>
