@@ -1,7 +1,7 @@
 
 let mode;
 
-if (window.location.href.startsWith("https://conjuguemos.com/vocabulary/")) {
+if (window.location.href.startsWith("https://conjuguemos.com/verb/")) {
     mode = "homework";
 }
 
@@ -247,7 +247,7 @@ if (mode) {
             <button id="chngData" class="button">Change Data</button>
             <button id="showAnswers" class="button">Show Answer</button>
             <button id="skipQ" class="button">Skip Question</button>
-                <div class="bottomTitle" id="versionTxt">v2.1.1</div>
+                <div class="bottomTitle" id="versionTxt">v2.1.2</div>
 </div>
 
         </div>
@@ -347,25 +347,27 @@ if (mode) {
                                 "The lesson will be skipped with " + Math.round((correct / total) * 100) + "% accuracy and the time taken will be " + timeAmt +
                                 ". The lesson start date will show as " + new Date(Date.now() - formatTime).toLocaleString() +
                                 " and the end date will show as " + new Date().toLocaleString() +
-                                ". Confirm lesson skip?",
+                                ". Confirm lesson skip? Once it reloads you might have to leave the lesson and reenter to fully submit.",
                                 function (result) {
-                                    if (result) {
-                                        setQuestions(correct, total);
-    
-                                        if (mode === 'assignment') {
+                                 if (result) {
+                                        
+                                         if (mode === 'assignment') {
+                                            setQuestions(correct, total);
                                             ConjuguemosTimer.getElapsedTime = () => formatTime;
                                             activity.save();
-                                        } else if (mode === 'homework') {
+                                            showNoti("Wait and don’t click stuff. Submitting...");
+                                            setTimeout(() => {
+                                                window.location.reload();
+                                            }, 100);
+                                        }  
+                                        if (mode === 'homework') {
+                                            setQuestionsVerb(correct, total);
                                             ConjuguemosTimer.getTime = () => timeAmt;
                                             ConjuguemosTimer.getStart = () => Date.now() - formatTime;
                                             activity.submit();
                                         }
     
-                                        showNoti("Wait and don’t click stuff. Submitting...");
-                                        setTimeout(() => {
-                                            window.location.reload();
-                                        }, 100);
-                                    } else {
+                                 } else {
                                         bootbox.alert({
                                             title: "Hackemos " + version,
                                             message: "Lesson skip canceled."
@@ -466,12 +468,24 @@ if (mode) {
         const attempts = Array.from({ length: total }, (_, i) => [
             "error",
             i < correct ? 1 : 0,
-            activity.currentList[i % activity.currentList.length].id,
-            5,
-        ]);
-
+        activity.currentList[i % activity.currentList.length].id ,
+            5,        
+        ]); 
         activity.correctAttempts = () => correct;
         activity.attempts = attempts;
+    }
+
+        function setQuestionsVerb(correct,total) {
+            const attempts = Array.from({ length: total }, (_, i) => [
+                "error",
+                i < correct ? 1 : 0,
+            activity.conjugations[i % activity.conjugations.length].idVerb ,
+            activity.conjugations[i % activity.conjugations.length].translation,
+            activity.conjugations[i % activity.conjugations.length].idPronoun,
+                5,
+            ]);
+            activity.correctAttempts = () => correct;
+            activity.attempts = attempts;
     }
 
     let toggle;
