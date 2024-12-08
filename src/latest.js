@@ -1,15 +1,16 @@
 
 let mode;
 
-if (window.location.href.startsWith("https://conjuguemos.com/verb/")) {
-    mode = "homework";
-}
+if (window.location.href.startsWith("https://conjuguemos.com/") && window.is_assignment !== undefined) {
+    if (activity.currentList) {
+        mode = window.is_assignment ? 'assignment' : 'vocab';
+    }
 
-if (window.location.href.startsWith("https://conjuguemos.com/assignment/")) {
-    mode = "assignment";
-}
+    if (activity.conjugations) {
+        mode = window.is_assignment ? 'verb-assignment' : 'verb';
+    }
 
-if (mode) {
+
     window.dragElement = e => {;let t=0,n=0,o=0,l=0;function u(e){(e=e||window.event).preventDefault(),o=e.clientX,l=e.clientY,document.onmouseup=s,document.onmousemove=i}function i(u){(u=u||window.event).preventDefault(),t=o-u.clientX,n=l-u.clientY,o=u.clientX,l=u.clientY,e.style.top=e.offsetTop-n+"px",e.style.left=e.offsetLeft-t+"px"}function s(){document.onmouseup=null,document.onmousemove=null}if(document.getElementById(e.id+"header")){document.getElementById(e.id+"header").onmousedown=u}else{e.onmousedown=u}};
         const themes = { 
             Berry: {
@@ -247,7 +248,7 @@ if (mode) {
             <button id="chngData" class="button">Change Data</button>
             <button id="showAnswers" class="button">Show Answer</button>
             <button id="skipQ" class="button">Skip Question</button>
-                <div class="bottomTitle" id="versionTxt">v2.1.2</div>
+                <div class="bottomTitle" id="versionTxt">v2.2</div>
 </div>
 
         </div>
@@ -296,7 +297,6 @@ if (mode) {
     
     function updateUI() {
         const theme = themes[themeKeys[current]];
-    
         const menu = document.getElementById("menu");
         menu.style.background = theme.background;
         menu.style.border = `solid 3px ${theme.primary}`;
@@ -324,9 +324,9 @@ if (mode) {
         showNoti("Theme updated to " + currentTheme);
     }
     
-    skipLesson = function () {
-        if (mode === 'assignment' || mode === 'homework') {
-            if (localStorage.getItem("disclaimer2") === 'true' && mode === 'assignment') {
+    const skipLesson = function () {
+        if (mode) {
+            if (localStorage.getItem("disclaimer2") === 'true' && (mode === 'assignment' || mode === 'verb-assignment')) {
                 alert("This is essentially the change data method, so if you didn’t set it to be enough questions to pass, it won't submit the lesson. The old method didn't do this but was buggy and could cause you to get caught.");
                 localStorage.setItem("disclaimer2", "false");
             }
@@ -349,9 +349,8 @@ if (mode) {
                                 " and the end date will show as " + new Date().toLocaleString() +
                                 ". Confirm lesson skip? Once it reloads you might have to leave the lesson and reenter to fully submit.",
                                 function (result) {
-                                 if (result) {
-                                        
-                                         if (mode === 'assignment') {
+                                    if (result) {
+                                        if (mode === 'assignment') {
                                             setQuestions(correct, total);
                                             ConjuguemosTimer.getElapsedTime = () => formatTime;
                                             activity.save();
@@ -359,15 +358,26 @@ if (mode) {
                                             setTimeout(() => {
                                                 window.location.reload();
                                             }, 100);
-                                        }  
-                                        if (mode === 'homework') {
+                                        } else if (mode === 'verb-assignment') {
+                                            setQuestionsVerb(correct, total);
+                                            ConjuguemosTimer.getElapsedTime = () => formatTime;
+                                            activity.save();
+                                            showNoti("Wait and don’t click stuff. Submitting...");
+                                            setTimeout(() => {
+                                                window.location.reload();
+                                            }, 100);
+                                        } else if (mode === 'vocab') {
+                                            setQuestions(correct, total);
+                                            ConjuguemosTimer.getTime = () => timeAmt;
+                                            ConjuguemosTimer.getStart = () => Date.now() - formatTime;
+                                            activity.submit();
+                                        } else if (mode === 'verb') {
                                             setQuestionsVerb(correct, total);
                                             ConjuguemosTimer.getTime = () => timeAmt;
                                             ConjuguemosTimer.getStart = () => Date.now() - formatTime;
                                             activity.submit();
                                         }
-    
-                                 } else {
+                                    } else {
                                         bootbox.alert({
                                             title: "Hackemos " + version,
                                             message: "Lesson skip canceled."
@@ -375,7 +385,7 @@ if (mode) {
                                     }
                                 }
                             );
-                            return; 
+                            return;
                         }
                     }
                 }
@@ -385,78 +395,82 @@ if (mode) {
         }
     };
     
-      
     document.getElementById('skip').addEventListener('click', () => {
         skipLesson();
     });
     
     document.getElementById('skipQ').addEventListener('click', () => {
-            settings.skip = 1;
-            showNoti("Question Skipped!")
-            activity.skip()
+        settings.skip = 1;
+        showNoti("Question Skipped!");
+        activity.skip();
     });
-
+    
     let aToggle = true;
     document.getElementById('showAnswers').addEventListener('click', () => {
-        if (aToggle === true) {
+        if (aToggle) {
             showNoti("Show answer on incorrect enabled.");
             settings.see_correct = 1;
-            aToggle = false
-    } else {
-        showNoti("Show answer on incorrect disabled.");
-        settings.see_correct = 0;
-        aToggle = true
-    }
+            aToggle = false;
+        } else {
+            showNoti("Show answer on incorrect disabled.");
+            settings.see_correct = 0;
+            aToggle = true;
+        }
     });
     
     document.getElementById('chngData').addEventListener('click', () => {
-        if (mode = 'assignment') {
-        const choice = prompt(
-            "What data would you like to change?\nOption 1: Question (1)\nOption 2: Minute Amount (2)\nOption 3: Cancel (anything other than 1 or 2)"
-        );
-
-        if (choice.toUpperCase() === "1") {
-            let question = prompt("How many questions do you want, and how many did you get correct? Write it as a fraction.", "Ex: 44/45");
-
-            if (question.includes("/")) {
-                let [correct, total] = question.split("/").map(num => parseInt(num.trim(), 10));
-                if (!isNaN(correct) && !isNaN(total) && total > 0) {
-                    setQuestions(correct,total)
-                    activity.save();
-
-                    showNoti("Reloading the lesson and applying changes...");
-                    setTimeout(() => {
-                        window.location.reload();
-                    }, 1000);
+        if (mode === 'assignment' || mode === 'verb-assignment') {
+            const choice = prompt(
+                "What data would you like to change?\nOption 1: Question (1)\nOption 2: Minute Amount (2)\nOption 3: Cancel (anything other than 1 or 2)"
+            );
+    
+            if (choice === "1") {
+                let question = prompt("How many questions do you want, and how many did you get correct? Write it as a fraction.", "44/45");
+    
+                if (question.includes("/")) {
+                    let [correct, total] = question.split("/").map(num => parseInt(num.trim(), 10));
+                    if (!isNaN(correct) && !isNaN(total) && total > 0) {
+                        if (mode === 'assignment' || mode === 'verb-assignment') {
+                            setQuestions(correct, total);
+                            activity.save();
+    
+                            showNoti("Reloading the lesson and applying changes...");
+                            setTimeout(() => {
+                                window.location.reload();
+                            }, 1000);
+                        }
+                    } else {
+                        showNoti("Invalid input. Please provide valid numbers.");
+                    }
                 } else {
-                    showNoti("Invalid input. Please provide valid numbers.");
+                    showNoti("Invalid input. Please provide the question data in fraction format (e.g., 44/45).");
                 }
-            } else {
-                showNoti("Invalid input. Please provide the question data in fraction format (e.g., 44/45).");
-            }
-        } else if (choice === "2") {
-            let timeAmt = prompt("What do you wanna set your timer to? (Format: mm:ss)", "Ex: 10:23");
-
-            if (/^\d{1,2}:\d{2}$/.test(timeAmt)) {
-                let [minutes, seconds] = timeAmt.split(":").map(num => parseInt(num.trim(), 10));
-
-                if (!isNaN(minutes) && !isNaN(seconds) && seconds >= 0 && seconds < 60) {
-                    let formatTime = (minutes * 60 + seconds) * 1000;
-
-                    ConjuguemosTimer.getElapsedTime = () => formatTime;
-                    activity.save();
-
-                    showNoti("Reloading the lesson and applying changes...");
-                    setTimeout(() => {
-                        window.location.reload();
-                    }, 1000);
+            } else if (choice === "2") {
+                let timeAmt = prompt("What do you wanna set your timer to? (Format: mm:ss)", "10:23");
+    
+                if (/^\d{1,2}:\d{2}$/.test(timeAmt)) {
+                    let [minutes, seconds] = timeAmt.split(":").map(num => parseInt(num.trim(), 10));
+    
+                    if (!isNaN(minutes) && !isNaN(seconds) && seconds >= 0 && seconds < 60) {
+                        let formatTime = (minutes * 60 + seconds) * 1000;
+    
+                        ConjuguemosTimer.getElapsedTime = () => formatTime;
+                        activity.save();
+    
+                        showNoti("Reloading the lesson and applying changes...");
+                        setTimeout(() => {
+                            window.location.reload();
+                        }, 1000);
+                    } else {
+                        showNoti("Please enter the time as mm:ss (ex: 10:23).");
+                    }
                 } else {
-                    showNoti("Please enter the time as mm:ss (e.g., 10:23).");
+                    showNoti("Invalid input error.");
                 }
-            } else {
-                showNoti("Canceled.");
             }
-        }} 
+        } else {
+            showNoti("Unsupported lesson type. Only works on assignments.")
+        }
     });
     let version = document.getElementById('versionTxt').textContent;
     let versionTxt = document.getElementById('versionTxt')
