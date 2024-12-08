@@ -327,7 +327,7 @@ if (window.location.href.startsWith("https://conjuguemos.com/") && window.is_ass
     const skipLesson = function () {
         if (mode) {
             if (localStorage.getItem("disclaimer2") === 'true' && (mode === 'assignment' || mode === 'verb-assignment')) {
-                alert("This is essentially the change data method, so if you didn’t set it to be enough questions to pass, it won't submit the lesson. The old method didn't do this but was buggy and could cause you to get caught.");
+                alert("If you set the questions and time to amount that doesn't meet the requirements to finish the lesson it will be submitted anyway, and it will look suspious. be careful when choosing values.");
                 localStorage.setItem("disclaimer2", "false");
             }
     
@@ -354,18 +354,12 @@ if (window.location.href.startsWith("https://conjuguemos.com/") && window.is_ass
                                             setQuestions(correct, total);
                                             ConjuguemosTimer.getElapsedTime = () => formatTime;
                                             activity.save();
-                                            showNoti("Wait and don’t click stuff. Submitting...");
-                                            setTimeout(() => {
-                                                window.location.reload();
-                                            }, 100);
+                                            activity.submit()
                                         } else if (mode === 'verb-assignment') {
                                             setQuestionsVerb(correct, total);
                                             ConjuguemosTimer.getElapsedTime = () => formatTime;
                                             activity.save();
-                                            showNoti("Wait and don’t click stuff. Submitting...");
-                                            setTimeout(() => {
-                                                window.location.reload();
-                                            }, 100);
+                                            activity.submit()
                                         } else if (mode === 'vocab') {
                                             setQuestions(correct, total);
                                             ConjuguemosTimer.getTime = () => timeAmt;
