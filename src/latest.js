@@ -248,7 +248,7 @@ if (mode) {
             <button id="chngData" class="button">Change Data</button>
             <button id="showAnswers" class="button">Show Answer</button>
             <button id="skipQ" class="button">Skip Question</button>
-                <div class="bottomTitle" id="versionTxt">v2.0</div>
+                <div class="bottomTitle" id="versionTxt">v2.1</div>
 </div>
 
         </div>
@@ -305,12 +305,47 @@ showNoti("Welcome to the Conjugemos hack. We are not responsible for any damages
         alert("This is essentially the change data method so if you didnt set it to be enough questions to pass it won't submit the lesson. The old method didn't do this but it was buggy and could cause you to get caught.")
         localStorage.setItem("disclaimer2","false")
     }
+    if (mode === 'assignment') {
         let question = prompt("How many questions do you want, and how many did you get correct? Write it as a fraction.", "Ex: 44/45");
 
         if (question.includes("/")) {
             let [correct, total] = question.split("/").map(num => parseInt(num.trim(), 10));
             if (!isNaN(correct) && !isNaN(total) && total > 0) {
-               setQuestions(correct,total)
+                let timeAmt = prompt("How many minutes do you want? (Format: mm:ss)", "Ex: 10:23");
+
+                if (/^\d{1,2}:\d{2}$/.test(timeAmt)) {
+                    let [minutes, seconds] = timeAmt.split(":").map(num => parseInt(num.trim(), 10));
+
+                    if (!isNaN(minutes) && !isNaN(seconds) && seconds >= 0 && seconds < 60) {
+                        let formatTime = (minutes * 60 + seconds) * 1000;
+                        bootbox.confirm("The lesson will be skipped with " + Math.round((correct / total) * 100) + "% accuracy and the time taken will be " + timeAmt + 
+                        ". The lesson start date will show as " + new Date(Date.now() - formatTime).toLocaleString() + 
+                        " and the end date will show as " + new Date().toLocaleString() + 
+                        ". Confirm lesson skip?", 
+        function(result) {
+            if (result) {
+                setQuestions(correct,total)
+                ConjuguemosTimer.getElapsedTime = () => formatTime;
+                activity.save();
+                showNoti("Wait and dont click stuff. Submitting...");
+                setTimeout(() => {
+                    window.location.reload();
+                }, 100);
+            } else {
+                bootbox.alert({
+                    title: "Hackemos",
+                    message: "Lesson skip canceled."
+                });
+                
+            }
+        });
+
+                    }
+                    if (mode === 'homework') {
+                        let question = prompt("How many questions do you want, and how many did you get correct? Write it as a fraction.", "Ex: 44/45");
+                        if (question.includes("/")) {
+                            let [correct, total] = question.split("/").map(num => parseInt(num.trim(), 10));
+                            if (!isNaN(correct) && !isNaN(total) && total > 0) {
                 let timeAmt = prompt("How many minutes do you want? (Format: mm:ss)", "Ex: 10:23");
 
                 if (/^\d{1,2}:\d{2}$/.test(timeAmt)) {
@@ -319,13 +354,27 @@ showNoti("Welcome to the Conjugemos hack. We are not responsible for any damages
                     if (!isNaN(minutes) && !isNaN(seconds) && seconds >= 0 && seconds < 60) {
                         let formatTime = (minutes * 60 + seconds) * 1000;
 
-                        ConjuguemosTimer.getElapsedTime = () => formatTime;
+                        bootbox.confirm("The lesson will be skipped with " + Math.round((correct / total) * 100) + "% accuracy and the time taken will be " + timeAmt + 
+                        ". The lesson start date will show as " + new Date(Date.now() - formatTime).toLocaleString() + 
+                        " and the end date will show as " + new Date().toLocaleString() + 
+                        ". Confirm lesson skip?", 
+        function(result) {
+            if (result) {
+                setQuestions(correct,total) 
+                ConjuguemosTimer.getTime = () => timeAmt;
+                ConjuguemosTimer.getStart = () => Date.now() - formatTime;
+                activity.submit()
+            } else {
+                bootbox.alert({
+                    title: "Hackemos",
+                    message: "Lesson skip canceled."
+                });
+            }
+        });
+        
+                    }}
 
-                        activity.save();
-                        showNoti("Wait and dont click stuff. Submitting...");
-                        setTimeout(() => {
-                            window.location.reload();
-                        }, 100);
+                    }}}
                     } else {
                         showNoti("Wrong input format");
                     }
