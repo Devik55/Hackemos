@@ -248,7 +248,7 @@ if (window.location.href.startsWith("https://conjuguemos.com/") && window.is_ass
             <button id="chngData" class="button">Change Data</button>
             <button id="showAnswers" class="button">Show Answer</button>
             <button id="skipQ" class="button">Skip Question</button>
-                <div class="bottomTitle" id="versionTxt">v2.2.1</div>
+                <div class="bottomTitle" id="versionTxt">v2.2</div>
 </div>
 
         </div>
@@ -268,8 +268,8 @@ if (window.location.href.startsWith("https://conjuguemos.com/") && window.is_ass
                 </p>
                 <h4 style="margin-bottom: 10px;">Supported Lesson Types:</h4>
                 <ul style="margin-bottom: 20px;">
-                    <li>Custom Assignments</li>
-                    <li>Guided Practices</li>
+                    <li>Custom Activity</li>
+                    <li>Guided Practice</li>
                 </ul>
                 <h4 style="margin-bottom: 10px;">Menu Features:</h4>
                 <ul>
@@ -423,16 +423,17 @@ if (window.location.href.startsWith("https://conjuguemos.com/") && window.is_ass
     
                 if (question.includes("/")) {
                     let [correct, total] = question.split("/").map(num => parseInt(num.trim(), 10));
-                    if (!isNaN(correct) && !isNaN(total) && total > 0) {
-                        if (mode === 'assignment' || mode === 'verb-assignment') {
+                    if (!isNaN(correct) && !isNaN(total) && total >= 0) {
+                        if (mode === 'assignment') {
                             setQuestions(correct, total);
+                        }
+                        if (mode === 'verb-assignment'){
+                            setQuestionsVerb(correct, total);
+                        }
                             activity.save();
     
-                            showNoti("Reloading the lesson and applying changes...");
-                            setTimeout(() => {
-                                window.location.reload();
-                            }, 1000);
-                        }
+                            showNoti("Reopen the lesson for results.");
+                        
                     } else {
                         showNoti("Invalid input. Please provide valid numbers.");
                     }
@@ -451,10 +452,7 @@ if (window.location.href.startsWith("https://conjuguemos.com/") && window.is_ass
                         ConjuguemosTimer.getElapsedTime = () => formatTime;
                         activity.save();
     
-                        showNoti("Reloading the lesson and applying changes...");
-                        setTimeout(() => {
-                            window.location.reload();
-                        }, 1000);
+                        showNoti("Reopen the lesson for the results.");
                     } else {
                         showNoti("Please enter the time as mm:ss (ex: 10:23).");
                     }
