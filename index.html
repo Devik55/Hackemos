@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css?family=DM+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" href="https://github.com/Devik55/Hackemos/blob/main/assets/logo%20filled%20.png?raw=true" type="image/png">
+    <title>Hackemos</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #000;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+        .content {
+            position: relative;
+            z-index: 2; 
+            text-align: center;
+        }
+        .logo img {
+            width: 250px;
+            height: 250px;
+        }
+        .title h1 {
+            color: white;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 50px;
+            margin-top: 20px; 
+            letter-spacing: 2px;
+            user-select: none;
+        }
+        .desc {
+            color: white;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 22px;
+            margin: 20px auto 0;
+            max-width: 600px;
+            text-align: center;
+        }
+        .try-btn {
+            user-select: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #121212;
+            color: white;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 20px;
+            padding: 15px 30px; 
+            border: 2px solid white;
+            border-radius: 50px;
+            cursor: pointer;
+            margin: 20px auto 0;
+            min-width: 200px;
+            text-decoration: none;
+            letter-spacing: 2px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .try-btn:hover {
+            background-color: #1f1f1f;
+            transform: scale(1.05);
+        }
+        .try-btn i {
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="particles-js"></div>
+    <div class="content">
+        <div class="logo">
+            <img src="./assets/assets/logo outline.png" draggable="false">
+        </div>
+        <div class="title">
+            <h1>Hackemos</h1>
+        </div>
+        <div class="desc">
+            <p>Hackemos is the best Conjugemos hack of 2024. Tired of the repetitive nature of Conjugemos lessons? Automate them at the click of a button and save yourself time to focus on the more important things.</p>
+        </div>
+        <a href="https://github.com/Devik55/Hackemos" class="try-btn" target="_blank">
+            <span>TRY NOW</span>
+            <i class="fa fa-github" aria-hidden="true"></i>
+        </a>
+    </div>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        particlesJS('particles-js', {
+            particles: {
+                number: {
+                    value: 100,
+                    density: {
+                        enable: true,
+                        value_area: 800
+                    }
+                },
+                color: { value: "#ffffff" },
+                shape: { type: "circle" },
+                opacity: {
+                    value: 0.8,
+                    random: false
+                },
+                size: {
+                    value: 6,
+                    random: true
+                },
+                line_linked: { enable: false },
+                move: {
+                    enable: true,
+                    speed: 2,
+                    direction: "bottom",
+                    out_mode: "out"
+                }
+            },
+            interactivity: {
+                detect_on: "canvas",
+                events: {
+                    onhover: { enable: false },
+                    onclick: { enable: false },
+                    resize: false
+                }
+            },
+            retina_detect: true
+        });
+    </script>
+</body>
+</html>
