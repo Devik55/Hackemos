@@ -248,7 +248,7 @@ if (window.location.href.startsWith("https://conjuguemos.com/") && window.is_ass
             <button id="chngData" class="button">Change Data</button>
             <button id="showAnswers" class="button">Show Answer</button>
             <button id="skipQ" class="button">Skip Question</button>
-                <div class="bottomTitle" id="versionTxt">v2.2.1</div>
+                <div class="bottomTitle" id="versionTxt">v2.2.2</div>
 </div>
 
         </div>
@@ -365,13 +365,17 @@ if (window.location.href.startsWith("https://conjuguemos.com/") && window.is_ass
                                             ConjuguemosTimer.getTime = () => timeAmt;
                                             ConjuguemosTimer.getStart = () => Date.now() - formatTime;
                                             activity.stop()
-                                            activity.submit();
+                                            setTimeout(() => {
+                                                activity.submit();
+                                            }, 300);     
                                         } else if (mode === 'verb') {
                                             setQuestionsVerb(correct, total);
                                             ConjuguemosTimer.getTime = () => timeAmt;
                                             ConjuguemosTimer.getStart = () => Date.now() - formatTime;
                                             activity.stop()
-                                            activity.submit();
+                                            setTimeout(() => {
+                                                activity.submit();
+                                            }, 300);                                            
                                         }
                                     } else {
                                         bootbox.alert({
@@ -489,8 +493,9 @@ if (window.location.href.startsWith("https://conjuguemos.com/") && window.is_ass
                 i < correct ? 1 : 0,
             activity.conjugations[i % activity.conjugations.length].idVerb ,
             activity.conjugations[i % activity.conjugations.length].translation,
-            activity.conjugations[i % activity.conjugations.length].idPronoun,
-                5,
+            5,
+            activity.conjugations[i % activity.conjugations.length].index,
+            activity.conjugations[i % activity.conjugations.length].idPronoun,     
             ]);
             activity.correctAttempts = () => correct;
             activity.attempts = attempts;
