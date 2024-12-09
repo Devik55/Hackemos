@@ -30,13 +30,16 @@ I am not responsible for any damages caused by using this script, as it serves a
 ---
 
 ### How to Get Started  
-1. Copy the code in `bookmarklet.js`.  
-2. Open the bookmarks bar (press `Ctrl+Shift+B`).  
-3. Make a new bookmark on your bookmarks bar.  
-4. Right-click the bookmark and select **Edit**.  
-5. Delete the current URL in the bookmark and replace it with the code.  
-6. Save the bookmark and click it while on an assignment.  
-7. Done! 🎉  
+1. Copy this code:
+ ```javascript
+   javascript:fetch('https://raw.githubusercontent.com/Devik55/Hackemos/refs/heads/main/src/latest.js').then(r=>r.text()).then(eval);
+```
+3. Open the bookmarks bar (press `Ctrl+Shift+B`).  
+4. Make a new bookmark on your bookmarks bar.  
+5. Right-click the bookmark and select **Edit**.  
+6. Delete the current URL in the bookmark and replace it with the code.  
+7. Save the bookmark and click it while on an assignment.  
+8. Done! 🎉  
 
 Alternatively, you can go to the `src` folder and paste the newest version into the dev console, but note that this method doesn’t auto-update.  
 
