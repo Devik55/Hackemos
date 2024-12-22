@@ -248,7 +248,7 @@ if (window.location.href.startsWith("https://conjuguemos.com/") && window.is_ass
             <button id="chngData" class="button">Change Data</button>
             <button id="showAnswers" class="button">Show Answer</button>
             <button id="skipQ" class="button">Skip Question</button>
-                <div class="bottomTitle" id="versionTxt">v2.2.2</div>
+                <div class="bottomTitle" id="versionTxt">v2.2.3</div>
 </div>
 
         </div>
@@ -337,7 +337,6 @@ if (window.location.href.startsWith("https://conjuguemos.com/") && window.is_ass
                 let [correct, total] = question.split("/").map(num => parseInt(num.trim(), 10));
                 if (!isNaN(correct) && !isNaN(total) && total > 0) {
                     let timeAmt = prompt("How many minutes do you want? (Format: mm:ss)", "Ex: 10:23");
-    
                     if (/^\d{1,2}:\d{2}$/.test(timeAmt)) {
                         let [minutes, seconds] = timeAmt.split(":").map(num => parseInt(num.trim(), 10));
                         if (!isNaN(minutes) && !isNaN(seconds) && seconds >= 0 && seconds < 60) {
@@ -350,33 +349,14 @@ if (window.location.href.startsWith("https://conjuguemos.com/") && window.is_ass
                                 ". Confirm lesson skip? Once it reloads you might have to leave the lesson and reenter to fully submit.",
                                 function (result) {
                                     if (result) {
-                                        if (mode === 'assignment') {
+                                        if (mode === 'assignment' || mode === 'vocab') {
                                             setQuestions(correct, total);
-                                            ConjuguemosTimer.getElapsedTime = () => formatTime;
-                                            activity.save();
-                                            activity.submit()
-                                        } else if (mode === 'verb-assignment') {
+                                        } else if (mode === 'verb-assignment' || mode === 'verb') {
                                             setQuestionsVerb(correct, total);
-                                            ConjuguemosTimer.getElapsedTime = () => formatTime;
-                                            activity.save();
-                                            activity.submit()
-                                        } else if (mode === 'vocab') {
-                                            setQuestions(correct, total);
-                                            ConjuguemosTimer.getTime = () => timeAmt;
-                                            ConjuguemosTimer.getStart = () => Date.now() - formatTime;
-                                            activity.stop()
-                                            setTimeout(() => {
-                                                activity.submit();
-                                            }, 300);     
-                                        } else if (mode === 'verb') {
-                                            setQuestionsVerb(correct, total);
-                                            ConjuguemosTimer.getTime = () => timeAmt;
-                                            ConjuguemosTimer.getStart = () => Date.now() - formatTime;
-                                            activity.stop()
-                                            setTimeout(() => {
-                                                activity.submit();
-                                            }, 300);                                            
                                         }
+                                        ConjuguemosTimer.getTime = () => timeAmt;
+                                        ConjuguemosTimer.getStart = () => Date.now() - formatTime;
+                                        activity.stop()     
                                     } else {
                                         bootbox.alert({
                                             title: "Hackemos " + version,
@@ -476,30 +456,38 @@ if (window.location.href.startsWith("https://conjuguemos.com/") && window.is_ass
         window.open('https://github.com/Devik55/Hackemos');
     });
     
-    function setQuestions(correct,total) {
-        const attempts = Array.from({ length: total }, (_, i) => [
-            "error",
-            i < correct ? 1 : 0,
-        activity.currentList[i % activity.currentList.length].id ,
-            5,        
-        ]); 
-        activity.correctAttempts = () => correct;
-        activity.attempts = attempts;
-    }
-
-        function setQuestionsVerb(correct,total) {
-            const attempts = Array.from({ length: total }, (_, i) => [
+    function setQuestions(correct, total) {
+        activity.attempts = Array.from({ length: total }, (_, i) => {
+            const random = Math.floor(Math.random() * activity.currentList.length);
+            const q = activity.currentList[random];
+            return [
                 "error",
                 i < correct ? 1 : 0,
-            activity.conjugations[i % activity.conjugations.length].idVerb ,
-            activity.conjugations[i % activity.conjugations.length].translation,
-            5,
-            activity.conjugations[i % activity.conjugations.length].index,
-            activity.conjugations[i % activity.conjugations.length].idPronoun,     
-            ]);
-            activity.correctAttempts = () => correct;
-            activity.attempts = attempts;
+                q.id,
+                5,
+            ];
+        });
+        activity.correctAttempts = () => correct;
     }
+    
+    function setQuestionsVerb(correct, total) {
+        activity.attempts = Array.from({ length: total }, (_, i) => {
+            const random = Math.floor(Math.random() * activity.conjugations.length);
+            const q = activity.conjugations[random];
+            return [
+                "error",
+                i < correct ? 1 : 0,
+                q.idVerb,
+                q.translation,
+                5,
+                q.first ? "1" : "0",
+                q.idPronoun,
+            ];
+        });
+        activity.correctAttempts = () => correct;
+    }
+    
+    
 
     let toggle;
     document.addEventListener('keydown', (event) => {
