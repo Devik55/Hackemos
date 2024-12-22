@@ -2,15 +2,6 @@
 
 # Hackemos  
 
----
-# We need your help!
-Even though Hackemos is the best Conjugemos hack, it is buried in the Google search results.
-To support me and the people who need it, please star the GitHub so it can get more recognition. 
-
-From now to Feburary 2025, anyone who stars the repo will be listed as a EARLY Supporter and will have their own place in the menu credits.
-
----
-
 Hackemos is the best Conjuguemos hack in 2024. It has 5+ features:  
 
 ### Features  
@@ -23,6 +14,15 @@ Hackemos is the best Conjuguemos hack in 2024. It has 5+ features:
 + Open Sourced  
 
 You can do all of these with ease on all lessons (including custom activities) as well.  
+
+---
+
+---
+# We need your help!
+Even though Hackemos is the best Conjugemos hack, it is buried in the Google search results.
+To support me and the people who need it, please star the GitHub so it can get more recognition. 
+
+From now to Feburary 2025, anyone who stars the repo will be listed as a EARLY Supporter and will have their own place in the menu credits.
 
 ---
 
