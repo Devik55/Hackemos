@@ -24,7 +24,11 @@ From now to Feburary 2025, anyone who stars the repo will be listed as a EARLY S
 
 ---
 
-### Offical Youtube Showcase/Tutorial 
+### Youtube Showcases/Tutorials
+<a href="https://www.youtube.com/watch?v=uSbyGqsjUY8">
+  <img src="https://github.com/user-attachments/assets/f915e190-37d8-44bb-b69a-0ae49e2f1e50" alt="What the menu looks like 2" />
+</a>
+
 <a href="https://www.youtube.com/watch?v=oy_oboVMOtQ">
   <img src="https://github.com/user-attachments/assets/41114b9e-7de5-424f-9757-903ce3a87b2c" alt="What the menu looks like" />
 </a>
