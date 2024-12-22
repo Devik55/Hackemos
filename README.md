@@ -1,4 +1,4 @@
-# <a href="https://hackemos.github.io"><img src="https://github.com/Devik55/Hackemos/blob/main/assets/logo%20outline.png?raw=true" alt="Hackemos Logo" width="150"></a>
+# <a href="https://hackemos.github.io"><img src="./assets/logo%20outline.png" alt="Hackemos Logo" width="150"></a>
 
 # Hackemos  
 
