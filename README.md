@@ -2,7 +2,7 @@
 
 # Hackemos  
 
-Hackemos is the best Conjuguemos hack in 2024. It has 5+ features:  
+Hackemos is the best Conjuguemos hack in 2025. It has 5+ features:  
 
 ### Features  
 1. Complete lessons and spoof lesson data 
@@ -20,7 +20,7 @@ You can do all of these with ease on all lessons (including custom activities) a
 Even though Hackemos is the best Conjugemos hack, it is buried in the Google search results.
 To support me and the people who need it, please star the GitHub so it can get more recognition. 
 
-From now to Feburary 2025, anyone who stars the repo will be listed as a EARLY Supporter and will have their own place in the menu credits.
+From now to April 2025, anyone who stars the repo will be listed as a EARLY Supporter and will have their own place in the menu credits.
 
 ---
 
