@@ -289,15 +289,13 @@ bootbox.alert({
     localStorage.setItem("disclaimer2", "true");
 });
 
-        
-    }
-    
-    document.querySelector(".pic").onclick = () => {
-        current = (current + 1) % themeKeys.length;
-        currentTheme = themeKeys[current];
-        localStorage.setItem('currentTheme', currentTheme);
-        updateUI();
-    };
+document.querySelector(".pic").onclick = () => {
+    current = (current + 1) % themeKeys.length;
+    currentTheme = themeKeys[current];
+    localStorage.setItem('currentTheme', currentTheme);
+    updateUI();
+};
+
     
     function updateUI() {
         const theme = themes[themeKeys[current]];
