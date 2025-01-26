@@ -256,35 +256,39 @@ if (window.location.href.startsWith("https://conjuguemos.com/") && window.is_ass
 
     document.body.appendChild(UI);
     window.dragElement(UI.firstElementChild);
-    if (localStorage.getItem("disclaimer2") === null) {
-        bootbox.alert({
-            title: "Welcome to the Conjuguemos Hack",
-            message: `
-                <p style="margin-bottom: 20px;">
-                    We are not responsible for any damages caused by using this script, as it serves as a proof of concept of the insecurities of the site and how they can be exploited.
-                </p>
-                <p style="margin-bottom: 20px;">
-                    The menu is open-sourced and is available on GitHub via clicking on the version text at the bottom.
-                </p>
-                <h4 style="margin-bottom: 10px;">Supported Lesson Types:</h4>
-                <ul style="margin-bottom: 20px;">
-                    <li>Custom Activity</li>
-                    <li>Guided Practice</li>
-                </ul>
-                <h4 style="margin-bottom: 10px;">Menu Features:</h4>
-                <ul>
-                    <li>Theme Changer (click the menu icon)</li>
-                    <li>Menu Toggle (Press F)</li>
-                    <li>Complete Lessons</li>
-                    <li>Set Questions</li>
-                    <li>Set the Timer</li>
-                    <li>Show Answers to Incorrect</li>
-                    <li>Skip Question</li>
-                </ul>
-            `
-        }, function() {
-            localStorage.setItem("disclaimer2", "true");
-        });
+bootbox.alert({
+    title: "Welcome to the Conjuguemos Hack",
+    message: `
+        <p style="margin-bottom: 20px;">
+            This script is for educational purposes only. I am not responsible for any misuse or damages caused. Click the version number in the menu to view the source code.
+        </p>
+
+        <h4 style="margin-bottom: 10px;">Menu Features:</h4>
+        <ul>
+            <li>Theme Changer (click the menu icon)</li>
+            <li>Menu Toggle (Press F)</li>
+            <li>Complete Lessons</li>
+            <li>Set Questions</li>
+            <li>Set the Timer</li>
+            <li>Show Answers to Incorrect</li>
+            <li>Skip Question</li>
+        </ul>
+
+        <p style="margin-bottom: 20px;"></p> 
+
+        <h4 style="margin-bottom: 10px;">Credits:</h4>
+        <p>Developer: <a href="https://github.com/Devik55" target="_blank">Devik55</a></p>
+        
+        <p style="margin-bottom: 15px;"></p> 
+        <h4 style="margin-bottom: 10px;">Early Supporters:</h4>
+        <p style="display: flex; gap: 10px;">
+            <a href="https://github.com/grahametc" target="_blank">grahametc</a>
+        </p>
+    `
+}, function() {
+    localStorage.setItem("disclaimer2", "true");
+});
+
         
     }
     
