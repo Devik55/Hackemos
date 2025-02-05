@@ -287,6 +287,10 @@ bootbox.alert({
           <p style="display: flex; gap: 10px;">
             <a href="https://github.com/Ad8013331" target="_blank">Ad8013331</a>
         </p>
+                  <p style="display: flex; gap: 10px;">
+            <a href="https://github.com/Jibbyneutronreal" target="_blank">Jibbyneutronreal</a>
+        </p>
+
     `
 }, function() {
     localStorage.setItem("disclaimer2", "true");
