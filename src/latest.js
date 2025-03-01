@@ -291,6 +291,10 @@ bootbox.alert({
             <a href="https://github.com/Jibbyneutronreal" target="_blank">Jibbyneutronreal</a>
         </p>
 
+         <p style="display: flex; gap: 10px;">
+            <a href="https://github.com/TheNumNinja" target="_blank">TheNumNinja</a>
+        </p>
+
     `
 }, function() {
     localStorage.setItem("disclaimer2", "true");
