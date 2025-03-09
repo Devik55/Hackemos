@@ -256,15 +256,16 @@ if (window.location.href.startsWith("https://conjuguemos.com/") && window.is_ass
 
     document.body.appendChild(UI);
     window.dragElement(UI.firstElementChild);
+
 bootbox.alert({
-    title: "Welcome to the Conjuguemos Hack",
-    message: `
-        <p style="margin-bottom: 20px;">
+    title: `Welcome to Hackemos ${version}`,
+    message:` 
+        <p style="margin-bottom: 10px;">
             This script is for educational purposes only. I am not responsible for any misuse or damages caused. Click the version number in the menu to view the source code.
         </p>
 
         <h4 style="margin-bottom: 10px;">Menu Features:</h4>
-        <ul>
+        <ul style="margin-bottom: 15px;">
             <li>Theme Changer (click the menu icon)</li>
             <li>Menu Toggle (Press F)</li>
             <li>Complete Lessons</li>
@@ -274,28 +275,20 @@ bootbox.alert({
             <li>Skip Question</li>
         </ul>
 
-        <p style="margin-bottom: 20px;"></p> 
-
-        <h4 style="margin-bottom: 10px;">Credits:</h4>
+        <h4 style="margin-bottom: 10px; margin-top: 5px;">Credits:</h4>
         <p>Developer: <a href="https://github.com/Devik55" target="_blank">Devik55</a></p>
-        
-        <p style="margin-bottom: 15px;"></p> 
-        <h4 style="margin-bottom: 10px;">Early Supporters:</h4>
-        <p style="display: flex; gap: 10px;">
-            <a href="https://github.com/grahametc" target="_blank">grahametc</a>
-        </p>
-          <p style="display: flex; gap: 10px;">
-            <a href="https://github.com/Ad8013331" target="_blank">Ad8013331</a>
-        </p>
-                  <p style="display: flex; gap: 10px;">
-            <a href="https://github.com/Jibbyneutronreal" target="_blank">Jibbyneutronreal</a>
-        </p>
 
-         <p style="display: flex; gap: 10px;">
-            <a href="https://github.com/TheNumNinja" target="_blank">TheNumNinja</a>
-        </p>
+        <p style="margin-top: 15px; margin-bottom: 5px;">Early Supporters:</p>
+        <p><a href="https://github.com/grahametc" target="_blank">grahametc</a></p>
+        <p><a href="https://github.com/Ad8013331" target="_blank">Ad8013331</a></p>
+        <p><a href="https://github.com/Jibbyneutronreal" target="_blank">Jibbyneutronreal</a></p>
+        <p><a href="https://github.com/TheNumNinja" target="_blank">TheNumNinja</a></p>
+        <p><a href="https://github.com/Scaroontop" target="_blank">Scaroontop</a></p>
 
-    `
+         <p style="margin-bottom: 20px;"></p>
+        <iframe src="https://widgets.commoninja.com/iframe/c49d0dce-cfd6-4176-9242-0dac4e7aeac7" width="100%" height="120px" style="border: 1px solid #ccc; border-radius:15px;"></iframe>
+        `
+    
 }, function() {
     localStorage.setItem("disclaimer2", "true");
 });
