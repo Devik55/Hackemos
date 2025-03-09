@@ -28,6 +28,7 @@ From now to April 2025, anyone who stars the repo will be listed as a EARLY Supp
 <a href="https://www.youtube.com/watch?v=uSbyGqsjUY8">
   <img src="https://github.com/user-attachments/assets/f915e190-37d8-44bb-b69a-0ae49e2f1e50" alt="What the menu looks like 2" />
 </a>
+
 ---
 
 ### READ BEFORE USING
