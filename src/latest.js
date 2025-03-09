@@ -1,4 +1,4 @@
-
+let version = "v2.2.3"
 let mode;
 
 if (window.location.href.startsWith("https://conjuguemos.com/") && window.is_assignment !== undefined) {
@@ -248,7 +248,7 @@ if (window.location.href.startsWith("https://conjuguemos.com/") && window.is_ass
             <button id="chngData" class="button">Change Data</button>
             <button id="showAnswers" class="button">Show Answer</button>
             <button id="skipQ" class="button">Skip Question</button>
-                <div class="bottomTitle" id="versionTxt">v2.2.3</div>
+                <div class="bottomTitle" id="versionTxt">${version}</div>
 </div>
 
         </div>
@@ -456,7 +456,6 @@ document.querySelector(".pic").onclick = () => {
             showNoti("Unsupported lesson type. Only works on assignments.")
         }
     });
-    let version = document.getElementById('versionTxt').textContent;
     let versionTxt = document.getElementById('versionTxt')
     versionTxt.addEventListener('click', () => {
         window.open('https://github.com/Devik55/Hackemos');
