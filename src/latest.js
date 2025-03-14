@@ -285,9 +285,6 @@ if (window.location.href.startsWith("https://conjuguemos.com/") && window.is_ass
                 <p><a href="https://github.com/Jibbyneutronreal" target="_blank">Jibbyneutronreal</a></p>
                 <p><a href="https://github.com/TheNumNinja" target="_blank">TheNumNinja</a></p>
                 <p><a href="https://github.com/Scaroontop" target="_blank">Scaroontop</a></p>
-    
-                <p style="margin-bottom: 20px;"></p>
-                <iframe src="https://widgets.commoninja.com/iframe/c49d0dce-cfd6-4176-9242-0dac4e7aeac7" width="100%" height="120px" style="border: 1px solid #ccc; border-radius:15px;"></iframe>
             `
         }, function() {
             localStorage.setItem("disclaimer2", "true");
