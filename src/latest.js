@@ -1,4 +1,4 @@
-let version = "v2.2.3"
+let version = "v2.2.4"
 let mode;
 
 if (window.location.href.startsWith("https://conjuguemos.com/") && window.is_assignment !== undefined) {
@@ -9,7 +9,6 @@ if (window.location.href.startsWith("https://conjuguemos.com/") && window.is_ass
     if (activity.conjugations) {
         mode = window.is_assignment ? 'verb-assignment' : 'verb';
     }
-
 
     window.dragElement = e => {;let t=0,n=0,o=0,l=0;function u(e){(e=e||window.event).preventDefault(),o=e.clientX,l=e.clientY,document.onmouseup=s,document.onmousemove=i}function i(u){(u=u||window.event).preventDefault(),t=o-u.clientX,n=l-u.clientY,o=u.clientX,l=u.clientY,e.style.top=e.offsetTop-n+"px",e.style.left=e.offsetLeft-t+"px"}function s(){document.onmouseup=null,document.onmousemove=null}if(document.getElementById(e.id+"header")){document.getElementById(e.id+"header").onmousedown=u}else{e.onmousedown=u}};
         const themes = { 
@@ -247,7 +246,7 @@ if (window.location.href.startsWith("https://conjuguemos.com/") && window.is_ass
             <button id="skip" class="button">Finish Lesson</button>
             <button id="chngData" class="button">Change Data</button>
             <button id="showAnswers" class="button">Show Answer</button>
-            <button id="skipQ" class="button">Skip Question</button>
+            <button id="disc" class="button">Join Discord</button>
                 <div class="bottomTitle" id="versionTxt">${version}</div>
 </div>
 
@@ -277,8 +276,8 @@ if (window.location.href.startsWith("https://conjuguemos.com/") && window.is_ass
                 </ul>
     
                 <h4 style="margin-bottom: 10px; margin-top: 5px;">Credits:</h4>
+                <p>Join the <a href="https://disc.gg/hackemos" target="_blank">Discord</a></p>
                 <p>Developer: <a href="https://github.com/Devik55" target="_blank">Devik55</a></p>
-    
                 <p style="margin-top: 15px; margin-bottom: 5px;">Early Supporters:</p>
                 <p><a href="https://github.com/grahametc" target="_blank">grahametc</a></p>
                 <p><a href="https://github.com/Ad8013331" target="_blank">Ad8013331</a></p>
@@ -383,10 +382,8 @@ document.querySelector(".pic").onclick = () => {
         skipLesson();
     });
     
-    document.getElementById('skipQ').addEventListener('click', () => {
-        settings.skip = 1;
-        showNoti("Question Skipped!");
-        activity.skip();
+    document.getElementById('disc').addEventListener('click', () => {
+        window.open('https://discord.gg/G3RPRHT9T8');
     });
     
     let aToggle = true;
