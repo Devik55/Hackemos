@@ -349,7 +349,7 @@ document.querySelector(".pic").onclick = () => {
                                 "The lesson will be skipped with " + Math.round((correct / total) * 100) + "% accuracy and the time taken will be " + timeAmt +
                                 ". The lesson start date will show as " + new Date(Date.now() - formatTime).toLocaleString() +
                                 " and the end date will show as " + new Date().toLocaleString() +
-                                ". Confirm lesson skip? Once it reloads you might have to leave the lesson and reenter to fully submit.",
+                                ". Confirm lesson skip? You should wait time inbetween completing lessons to avoid suspicion.",
                                 function (result) {
                                     if (result) {
                                         if (mode === 'assignment' || mode === 'vocab') {
