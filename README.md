@@ -26,7 +26,7 @@ I am not responsible for any damages caused by using this script, as it serves a
 
 
 ### Youtube Showcase/Tutorial
-<a href="https://www.youtube.com/watch?v=uSbyGqsjUY8">
+<a href="https://www.youtube.com/watch?v=nYPZTNSXqVI&ab_channel=HackemosOffical">
   <img src="https://github.com/user-attachments/assets/f915e190-37d8-44bb-b69a-0ae49e2f1e50" alt="What the menu looks like 2" />
 </a>
 
