@@ -13,21 +13,7 @@ Hackemos is the best Conjuguemos hack in 2025. It has 5+ features:
 6. Customizable and easy to use UI 
 + Open Sourced  
 
-You can do all of these with ease on all lessons (including custom activities) as well.  
-
----
-## We need your help!
-Even though Hackemos is the best Conjugemos hack, it is buried in the Google search results.
-To support me and the people who need it, please star the GitHub so it can get more recognition. 
-
-From now to April 2025, anyone who stars the repo will be listed as a EARLY Supporter and will have their own place in the menu credits.
-
----
-
-### Youtube Showcase/Tutorial
-<a href="https://www.youtube.com/watch?v=uSbyGqsjUY8">
-  <img src="https://github.com/user-attachments/assets/f915e190-37d8-44bb-b69a-0ae49e2f1e50" alt="What the menu looks like 2" />
-</a>
+You can do all of these with ease on all lessons (including custom activities) as well.
 
 ---
 
@@ -35,6 +21,11 @@ From now to April 2025, anyone who stars the repo will be listed as a EARLY Supp
 I am not responsible for any damages caused by using this script, as it serves as a proof of concept of the insecurities of the site and how they can be exploited. This is not intended for academic dishonesty. The menu is open sourced and is avaliable in the src folder for easy patching. (i also made this so i can have an excuse to practice making uis)
 
 ---
+
+### Youtube Showcase/Tutorial
+<a href="https://www.youtube.com/watch?v=uSbyGqsjUY8">
+  <img src="https://github.com/user-attachments/assets/f915e190-37d8-44bb-b69a-0ae49e2f1e50" alt="What the menu looks like 2" />
+</a>
 
 ### How to Get Started  
 1. Copy this code:
