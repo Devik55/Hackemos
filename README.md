@@ -15,14 +15,9 @@ Hackemos is the best Conjuguemos hack in 2025. It has 5+ features:
 
 You can do all of these with ease on all lessons (including custom activities) as well.
 
----
 
-### READ BEFORE USING
-I am not responsible for any damages caused by using this script, as it serves as a proof of concept of the insecurities of the site and how they can be exploited. This is not intended for academic dishonesty. The menu is open sourced and is avaliable in the src folder.
-
----
-
-### Need help getting started or want to see Hackemos versions before they are released? Join our [Discord](https://discord.gg/G3RPRHT9T8)
+### Join the Discord to get access to the code (it's free)
+https://discord.gg/G3RPRHT9T8
 
 
 ### Youtube Showcase/Tutorial
