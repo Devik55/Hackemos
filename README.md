@@ -27,5 +27,12 @@ https://discord.gg/G3RPRHT9T8
 
 
 ---
+
+# Extra Info
+Q: Why is the code locked behind a discord server?
+
+A: This is to prevent the hack being easily being patched, as on GitHub it was easily accessible and not obfuscated. Everything will remain free though.
+
+
  
 
