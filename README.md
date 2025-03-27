@@ -17,7 +17,7 @@ You can do all of these with ease on all lessons (including custom activities) a
 
 
 ### Join the Discord to get access to the code (it's free)
-https://discord.gg/G3RPRHT9T8
+[Discord Server](https://discord.gg/hackemos)
 
 
 ### Youtube Showcase/Tutorial
