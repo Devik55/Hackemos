@@ -16,22 +16,21 @@ Hackemos is the best Conjuguemos hack in 2025. It has 5+ features:
 You can do all of these with ease on all lessons (including custom activities) as well.
 
 
-### Join the Discord to get access to the code (it's free)
+### How to Use
+https://hackemos.xyz/instructions/
+
+Need Help?
 [Discord Server](https://discord.gg/WX7CCf5pqk)
 
 
 ### Youtube Showcase/Tutorial
-<a href="https://www.youtube.com/watch?v=iwHbhvkpTcU&ab_channel=HackemosOffical">
+<a href="https://www.youtube.com/watch?v=dV7_Baejc2k">
   <img src="https://github.com/user-attachments/assets/f915e190-37d8-44bb-b69a-0ae49e2f1e50" alt="Hackemos Tutorial" />
 </a>
 
 
 ---
 
-# Extra Info
-Q: Why is the code locked behind a discord server?
-
-A: This is to prevent the hack being easily being patched, as on GitHub it was easily accessible and not obfuscated. Everything will remain free though.
 
 
  
